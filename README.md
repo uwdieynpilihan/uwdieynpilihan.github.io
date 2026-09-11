@@ -1,2 +1,2 @@
-# uwdieynpilihan.github-oi
-uwdieynpilihan - Katalog Produck Affiliate Shopee &amp; Lazada
+# uwdieynpilihan.github.oi
+uwdieynpilihan - Katalog Produck Affiliate Shopee & Lazada
