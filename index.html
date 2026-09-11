@@ -1,13 +1,890 @@
+```html
 <!DOCTYPE html>
 <html lang="ms">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Uwdieyn Pilihan</title>
+
+    <title>Uwdieyn Pilihan | Katalog Produk Affiliate</title>
+
+    <meta name="description"
+          content="Uwdieyn Pilihan – katalog produk pilihan, promosi dan cadangan produk Shopee & Lazada.">
+
+    <meta name="keywords"
+          content="Uwdieyn Pilihan, Shopee, Lazada, affiliate, produk pilihan, promosi">
+
+    <meta name="author" content="Uwdieyn Pilihan">
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f5f6f8;
+            color: #222;
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        /* =========================
+           HEADER
+        ========================= */
+
+        header {
+            background: linear-gradient(135deg, #111827, #374151);
+            color: white;
+            padding: 18px 5%;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.15);
+        }
+
+        .header-inner {
+            max-width: 1200px;
+            margin: auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .brand-logo {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            background: white;
+            color: #111827;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        .brand-text h1 {
+            font-size: 21px;
+            line-height: 1.1;
+        }
+
+        .brand-text p {
+            font-size: 12px;
+            opacity: 0.8;
+        }
+
+        nav {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: white;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            opacity: 0.7;
+        }
+
+        /* =========================
+           HERO
+        ========================= */
+
+        .hero {
+            background: white;
+            padding: 65px 5%;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 850px;
+            margin: auto;
+        }
+
+        .hero h2 {
+            font-size: clamp(32px, 6vw, 54px);
+            line-height: 1.15;
+            margin-bottom: 18px;
+        }
+
+        .hero h2 span {
+            color: #ea580c;
+        }
+
+        .hero p {
+            max-width: 700px;
+            margin: auto;
+            color: #555;
+            font-size: 17px;
+        }
+
+        .hero-buttons {
+            margin-top: 28px;
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 13px 22px;
+            border-radius: 10px;
+            font-weight: bold;
+            transition: 0.2s;
+        }
+
+        .btn-primary {
+            background: #ea580c;
+            color: white;
+        }
+
+        .btn-secondary {
+            background: #111827;
+            color: white;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            opacity: 0.9;
+        }
+
+        /* =========================
+           SEARCH
+        ========================= */
+
+        .search-area {
+            max-width: 850px;
+            margin: -25px auto 35px;
+            padding: 0 5%;
+            position: relative;
+            z-index: 5;
+        }
+
+        .search-box {
+            background: white;
+            padding: 10px;
+            border-radius: 15px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+            display: flex;
+        }
+
+        .search-box input {
+            flex: 1;
+            border: none;
+            outline: none;
+            padding: 14px;
+            font-size: 16px;
+        }
+
+        .search-box button {
+            border: none;
+            background: #111827;
+            color: white;
+            padding: 0 22px;
+            border-radius: 10px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        /* =========================
+           GENERAL SECTION
+        ========================= */
+
+        section {
+            padding: 55px 5%;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .section-title h2 {
+            font-size: 30px;
+            margin-bottom: 8px;
+        }
+
+        .section-title p {
+            color: #666;
+        }
+
+        /* =========================
+           CATEGORIES
+        ========================= */
+
+        .categories {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+        }
+
+        .category {
+            background: white;
+            padding: 22px 15px;
+            border-radius: 14px;
+            text-align: center;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.06);
+            transition: 0.2s;
+            cursor: pointer;
+        }
+
+        .category:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        }
+
+        .category-icon {
+            font-size: 32px;
+            margin-bottom: 8px;
+        }
+
+        .category h3 {
+            font-size: 15px;
+        }
+
+        .category p {
+            font-size: 12px;
+            color: #777;
+        }
+
+        /* =========================
+           PRODUCTS
+        ========================= */
+
+        .products {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+            gap: 20px;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 4px 18px rgba(0,0,0,0.07);
+            transition: 0.2s;
+        }
+
+        .product-card:hover {
+            transform: translateY(-4px);
+        }
+
+        .product-image {
+            height: 190px;
+            background: #e5e7eb;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 55px;
+        }
+
+        .product-info {
+            padding: 18px;
+        }
+
+        .product-info h3 {
+            font-size: 17px;
+            margin-bottom: 7px;
+        }
+
+        .product-info p {
+            font-size: 13px;
+            color: #666;
+            margin-bottom: 14px;
+        }
+
+        .product-buttons {
+            display: flex;
+            gap: 8px;
+        }
+
+        .product-buttons a {
+            flex: 1;
+            text-align: center;
+            padding: 10px 5px;
+            border-radius: 8px;
+            font-size: 12px;
+            font-weight: bold;
+            color: white;
+        }
+
+        .btn-shopee {
+            background: #ee4d2d;
+        }
+
+        .btn-lazada {
+            background: #0f6fff;
+        }
+
+        /* =========================
+           INFO
+        ========================= */
+
+        .info-box {
+            background: #111827;
+            color: white;
+            border-radius: 18px;
+            padding: 35px;
+            text-align: center;
+        }
+
+        .info-box h2 {
+            margin-bottom: 10px;
+        }
+
+        .info-box p {
+            max-width: 750px;
+            margin: auto;
+            opacity: 0.85;
+        }
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            background: #111827;
+            color: white;
+            padding: 35px 5%;
+            text-align: center;
+        }
+
+        footer p {
+            font-size: 13px;
+            opacity: 0.75;
+        }
+
+        .footer-links {
+            margin-bottom: 15px;
+        }
+
+        .footer-links a {
+            color: white;
+            margin: 0 8px;
+            font-size: 13px;
+        }
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (max-width: 700px) {
+
+            header {
+                padding: 14px 4%;
+            }
+
+            .header-inner {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            nav {
+                width: 100%;
+                justify-content: space-between;
+                gap: 8px;
+            }
+
+            nav a {
+                font-size: 12px;
+            }
+
+            .hero {
+                padding: 45px 5%;
+            }
+
+            .hero p {
+                font-size: 15px;
+            }
+
+            .search-area {
+                margin-top: -15px;
+            }
+
+            .search-box button {
+                padding: 0 15px;
+            }
+
+            section {
+                padding: 40px 5%;
+            }
+
+            .product-image {
+                height: 160px;
+            }
+
+            .info-box {
+                padding: 25px 18px;
+            }
+        }
+    </style>
 </head>
+
 <body>
-    <h1>Uwdieyn Pilihan</h1>
-    <p>Katalog Produk Affiliate Shopee & Lazada</p>
-    <p>Website sedang dibangunkan.</p>
+
+<!-- =========================
+     HEADER
+========================= -->
+
+<header>
+    <div class="header-inner">
+
+        <div class="brand">
+
+            <div class="brand-logo">
+                UP
+            </div>
+
+            <div class="brand-text">
+                <h1>Uwdieyn Pilihan</h1>
+                <p>Katalog Produk Affiliate</p>
+            </div>
+
+        </div>
+
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#kategori">Kategori</a>
+            <a href="#produk">Produk</a>
+            <a href="#tentang">Tentang</a>
+        </nav>
+
+    </div>
+</header>
+
+
+<!-- =========================
+     HERO
+========================= -->
+
+<main>
+
+<section class="hero" id="home">
+
+    <div class="hero-content">
+
+        <h2>
+            Temui <span>Produk Pilihan</span>
+            Untuk Anda
+        </h2>
+
+        <p>
+            Uwdieyn Pilihan ialah katalog produk digital yang membantu
+            anda mencari produk menarik, berguna dan berbaloi daripada
+            platform e-dagang seperti Shopee dan Lazada.
+        </p>
+
+        <div class="hero-buttons">
+
+            <a href="#produk" class="btn btn-primary">
+                🔥 Lihat Produk
+            </a>
+
+            <a href="#kategori" class="btn btn-secondary">
+                🏷️ Lihat Kategori
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     SEARCH
+========================= -->
+
+<div class="search-area">
+
+    <div class="search-box">
+
+        <input
+            type="search"
+            id="searchInput"
+            placeholder="🔎 Cari produk..."
+            onkeyup="searchProducts()"
+        >
+
+        <button onclick="searchProducts()">
+            Cari
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- =========================
+     CATEGORIES
+========================= -->
+
+<section id="kategori">
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <h2>🏷️ Kategori Produk</h2>
+
+            <p>
+                Pilih kategori yang anda perlukan.
+            </p>
+
+        </div>
+
+
+        <div class="categories">
+
+            <div class="category">
+                <div class="category-icon">📱</div>
+                <h3>Gadget</h3>
+                <p>Telefon & aksesori</p>
+            </div>
+
+            <div class="category">
+                <div class="category-icon">💻</div>
+                <h3>Komputer</h3>
+                <p>PC & aksesori</p>
+            </div>
+
+            <div class="category">
+                <div class="category-icon">🏠</div>
+                <h3>Rumah</h3>
+                <p>Keperluan rumah</p>
+            </div>
+
+            <div class="category">
+                <div class="category-icon">🌾</div>
+                <h3>Pertanian</h3>
+                <p>Kebun & pertanian</p>
+            </div>
+
+            <div class="category">
+                <div class="category-icon">👕</div>
+                <h3>Fesyen</h3>
+                <p>Pakaian & aksesori</p>
+            </div>
+
+            <div class="category">
+                <div class="category-icon">✨</div>
+                <h3>Lain-lain</h3>
+                <p>Produk menarik</p>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     PRODUCTS
+========================= -->
+
+<section id="produk">
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <h2>🔥 Produk Pilihan</h2>
+
+            <p>
+                Contoh produk untuk struktur katalog V1.
+            </p>
+
+        </div>
+
+
+        <div class="products" id="productList">
+
+
+            <!-- PRODUCT 1 -->
+
+            <div class="product-card">
+
+                <div class="product-image">
+                    📱
+                </div>
+
+                <div class="product-info">
+
+                    <h3>Telefon Pintar</h3>
+
+                    <p>
+                        Contoh produk gadget pilihan untuk kegunaan harian.
+                    </p>
+
+                    <div class="product-buttons">
+
+                        <a href="#"
+                           class="btn-shopee"
+                           onclick="affiliateNotice(event)">
+                            Shopee
+                        </a>
+
+                        <a href="#"
+                           class="btn-lazada"
+                           onclick="affiliateNotice(event)">
+                            Lazada
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- PRODUCT 2 -->
+
+            <div class="product-card">
+
+                <div class="product-image">
+                    💻
+                </div>
+
+                <div class="product-info">
+
+                    <h3>Aksesori Komputer</h3>
+
+                    <p>
+                        Contoh produk komputer dan aksesori yang berguna.
+                    </p>
+
+                    <div class="product-buttons">
+
+                        <a href="#"
+                           class="btn-shopee"
+                           onclick="affiliateNotice(event)">
+                            Shopee
+                        </a>
+
+                        <a href="#"
+                           class="btn-lazada"
+                           onclick="affiliateNotice(event)">
+                            Lazada
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- PRODUCT 3 -->
+
+            <div class="product-card">
+
+                <div class="product-image">
+                    🏠
+                </div>
+
+                <div class="product-info">
+
+                    <h3>Keperluan Rumah</h3>
+
+                    <p>
+                        Contoh produk praktikal untuk kegunaan rumah.
+                    </p>
+
+                    <div class="product-buttons">
+
+                        <a href="#"
+                           class="btn-shopee"
+                           onclick="affiliateNotice(event)">
+                            Shopee
+                        </a>
+
+                        <a href="#"
+                           class="btn-lazada"
+                           onclick="affiliateNotice(event)">
+                            Lazada
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- PRODUCT 4 -->
+
+            <div class="product-card">
+
+                <div class="product-image">
+                    🌾
+                </div>
+
+                <div class="product-info">
+
+                    <h3>Produk Pertanian</h3>
+
+                    <p>
+                        Contoh keperluan kebun, tanaman dan pertanian.
+                    </p>
+
+                    <div class="product-buttons">
+
+                        <a href="#"
+                           class="btn-shopee"
+                           onclick="affiliateNotice(event)">
+                            Shopee
+                        </a>
+
+                        <a href="#"
+                           class="btn-lazada"
+                           onclick="affiliateNotice(event)">
+                            Lazada
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     ABOUT
+========================= -->
+
+<section id="tentang">
+
+    <div class="container">
+
+        <div class="info-box">
+
+            <h2>💡 Mengenai Uwdieyn Pilihan</h2>
+
+            <p>
+                Uwdieyn Pilihan dibangunkan sebagai katalog digital
+                untuk membantu pengguna menemui pelbagai produk pilihan
+                daripada platform e-dagang. Kami memberi fokus kepada
+                perkongsian maklumat produk, promosi dan panduan yang
+                mudah difahami.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+</main>
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer>
+
+    <div class="footer-links">
+
+        <a href="#home">Home</a>
+        <a href="#kategori">Kategori</a>
+        <a href="#produk">Produk</a>
+        <a href="#tentang">Tentang</a>
+
+    </div>
+
+    <p>
+        © 2026 Uwdieyn Pilihan. Semua hak cipta terpelihara.
+    </p>
+
+    <p>
+        Sesetengah pautan produk mungkin merupakan pautan affiliate.
+    </p>
+
+</footer>
+
+
+<!-- =========================
+     JAVASCRIPT
+========================= -->
+
+<script>
+
+function searchProducts() {
+
+    const input =
+        document.getElementById("searchInput")
+        .value
+        .toLowerCase()
+        .trim();
+
+    const products =
+        document.querySelectorAll(".product-card");
+
+    products.forEach(function(product) {
+
+        const text =
+            product.innerText.toLowerCase();
+
+        if (text.includes(input)) {
+
+            product.style.display = "";
+
+        } else {
+
+            product.style.display = "none";
+
+        }
+
+    });
+
+}
+
+
+function affiliateNotice(event) {
+
+    event.preventDefault();
+
+    alert(
+        "Pautan affiliate sebenar akan dimasukkan kemudian."
+    );
+
+}
+
+</script>
+
 </body>
 </html>
+```
